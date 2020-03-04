@@ -15,10 +15,9 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/workout", {
-  useNewUrlParser: true,
-  useFindAndModify: false
-});
+mongoose.Promise = global.Promise; 
+mongoose.connect( process.env.MONGODB_URI || "mongodb://mr-andersen523:password123@ds049538.mlab.com:49538/heroku_4jnrfhdk", 
+{ useNewUrlParser: true, useFindAndModify: false });
 
 // ROUTES
 app.use(require("./routes/api.js"));
