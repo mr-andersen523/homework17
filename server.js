@@ -15,9 +15,11 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.Promise = global.Promise; 
-mongoose.connect( process.env.MONGODB_URI || "mongodb://mr-andersen523:password123@ds049538.mlab.com:49538/heroku_4jnrfhdk", 
-{ useNewUrlParser: true, useFindAndModify: false });
+mongoose.connect("mongodb://mr-andersen523:password123@ds049538.mlab.com:49538/heroku_4jnrfhdk", {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+});
 
 // ROUTES
 app.use(require("./routes/api.js"));
