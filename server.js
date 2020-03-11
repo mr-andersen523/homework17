@@ -4,7 +4,7 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 
@@ -20,6 +20,12 @@ mongoose.connect("mongodb://mr-andersen523:password123@ds049538.mlab.com:49538/h
   useFindAndModify: false,
   useUnifiedTopology: true,
 });
+
+// mongoose.connect("mongodb://localhost/workout", {
+//   useNewUrlParser: true,
+//   useFindAndModify: false,
+//   useUnifiedTopology: true,
+// });
 
 // ROUTES
 app.use(require("./routes/api.js"));
